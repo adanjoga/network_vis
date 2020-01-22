@@ -33,7 +33,7 @@
         var svg = d3.select("#d3_selectable_force_directed_graph").append("svg")
             .attr("width", width)
             .attr("height", height);
-        d3.json('jobs_graph_degree_user.json', function (error, graph) {
+        d3.json('data/jobs_graph_degree_user.json', function (error, graph) {
             if (!error) {
                 //console.log('graph', graph);
                 createV4SelectableForceDirectedGraph1(svg, graph);
