@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- 
+    C3 Project: ONET Jobs Network  
+-->
+<head>
+    <title>C3 Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <link rel='stylesheet' href='d3v4-selectable-zoomable-force-directed-graph1.css'>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="d3v4-brush-lite.js"></script>
+    <script src="d3v4-selectable-force-directed-graph11.js"></script>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>C3 Project: ONET Jobs Network </h1>
+            <p>Resize this responsive page to see the effect!</p>
+        </div>
+        <div id="d3_selectable_force_directed_graph" style="padding:0px; width:100%; height:500px; border: 2px solid rgb(71,71,77)">
+            
+        </div>
+    </div>
+    <script>
+        var width = 960, height = 500;
+
+        var svg = d3.select("#d3_selectable_force_directed_graph").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+        d3.json('jobs_graph_degree_user.json', function (error, graph) {
+            if (!error) {
+                //console.log('graph', graph);
+                createV4SelectableForceDirectedGraph1(svg, graph);
+            } else {
+                console.error(error);
+            }
+        });
+
+    </script>
