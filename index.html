@@ -14,14 +14,27 @@
 
 <body>
     <link rel='stylesheet' href='d3v4-onet-jobs-network.css'>
+    <link rel='stylesheet' href='custom_radio_botton.css'>
     <script type="text/javascript" src="d3v4-onet-jobs-network.js"></script>
+    <script type="text/javascript" src="d3v4-dwp-jobs-network_v1.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
     
     <div class="container">
+        
         <div class="jumbotron">
-            <h1>C3 Project: ONET Jobs Network </h1>
+            <h1>C3 Project: Job Roles Network </h1>
             <p>Resize this responsive page to see the effect!</p>
         </div>
+
+        <label class="mycontainer">ONET Jobs Network
+            <input type="radio" checked="checked" name="radio" onclick="display_onet_network()">
+            <span class="checkmark"></span>
+        </label>
+        <label class="mycontainer">DWP Jobs Network
+            <input type="radio" name="radio" onclick="display_dwp_network()">
+            <span class="checkmark"></span>
+        </label>
+        
         <div id="d3_fd_network" style="padding:0px; width:100%; height:500px; border: 2px solid rgb(71,71,77)">
             
         </div>
@@ -31,7 +44,7 @@
         var svg = d3.select("#d3_fd_network").append("svg")
             .attr("width", width)
             .attr("height", height);
-
+        /*
         d3.json('data/jobs_network_onet.json', function (error, graph) {
             if (!error) {
                 //console.log('graph', graph);
@@ -40,5 +53,28 @@
                 console.error(error);
             }
         });
+        */
+        function display_onet_network() {
+            d3.json('data/jobs_network_onet.json', function (error, graph) {
+                if (!error) {
+                    //console.log('graph', graph);
+                    createJobsNetwork_onet(svg, graph);
+                } else {
+                    console.error(error);
+                }
+            });
+        }
+        function display_dwp_network() {
+            
+            d3.json('data/jobs_network_dwp.json', function (error, graph) {
+                if (!error) {
+                    //console.log('graph', graph);
+                    createJobsNetwork_dwp(svg, graph);
+                } else {
+                    console.error(error);
+                }
+            });
+            
+        }
 
     </script>
