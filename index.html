@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <link rel='stylesheet' href='d3v4-onet-jobs-network.css'>
+    <link rel='stylesheet' href='d3v4-jobs-network.css'>
     <link rel='stylesheet' href='custom_radio_botton.css'>
     <script type="text/javascript" src="d3v4-onet-jobs-network.js"></script>
-    <script type="text/javascript" src="d3v4-dwp-jobs-network_v1.js"></script>
+    <script type="text/javascript" src="d3v4-dwp-jobs-network.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
     
     <div class="container">
@@ -44,7 +44,7 @@
         var svg = d3.select("#d3_fd_network").append("svg")
             .attr("width", width)
             .attr("height", height);
-        /*
+        
         d3.json('data/jobs_network_onet.json', function (error, graph) {
             if (!error) {
                 //console.log('graph', graph);
@@ -53,7 +53,7 @@
                 console.error(error);
             }
         });
-        */
+        
         function display_onet_network() {
             d3.json('data/jobs_network_onet.json', function (error, graph) {
                 if (!error) {
