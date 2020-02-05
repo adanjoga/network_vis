@@ -75,10 +75,6 @@ function createJobsNetwork_onet(svg, graph) {
             else
                 return color(d.group); 
         })
-        .attr("stroke", function(d) {
-            if (d.group_it == 1)
-                return "blue";
-        })
         .on("click", click)
         .on("mouseover", function(d,i) {
             d3v4.select(this)
@@ -88,7 +84,7 @@ function createJobsNetwork_onet(svg, graph) {
             div.transition()
                 .duration(500)		
                 .style("opacity", .9);
-            div.html("<br/>"  + d.name + "<br/>" + d.dist + " %" + "<br/>")	
+            div.html("<br/>"  + d.job_role + "<br/>" + "d.score" + " %" + "<br/>")	
                 .style("left", (d3v4.event.pageX + 15) + "px")		
                 .style("top", (d3v4.event.pageY - 10) + "px");
         })
@@ -96,7 +92,12 @@ function createJobsNetwork_onet(svg, graph) {
             d3v4.select(this)
                 .transition()
                 .duration(1000)
-                .attr("r", function(d){return d.size});
+                .attr("r", function(d){
+                    if ('size' in d)
+                        return d.size;
+                    else 
+                        return 6
+                });
 
             div.transition()
                 .duration(500)
@@ -137,8 +138,14 @@ function createJobsNetwork_onet(svg, graph) {
     }
 
     function click() { 
-        d3v4.select(this).transition()
-        .attr("class", "selected");
+        if (!d3v4.select(this).classed("selected") ){
+            d3.select(this).classed("selected", true)
+            d3.select(this).transition().attr("class","selected");
+        }
+        else {
+            d3.select(this).classed("selected", false);
+            d3.select(this).transition().attr("class","noselected");
+        }
     }
 
     var texts = ['+ Use the scroll wheel to zoom',

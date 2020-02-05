@@ -32,7 +32,7 @@
             .attr("width", width)
             .attr("height", height);
 
-        d3.json('data/jobs_graph_degree_user.json', function (error, graph) {
+        d3.json('data/jobs_network_onet.json', function (error, graph) {
             if (!error) {
                 //console.log('graph', graph);
                 createJobsNetwork_onet(svg, graph);
