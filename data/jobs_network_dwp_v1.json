@@ -41,8 +41,8 @@
             "group": 1
         },
         {
-            "id": "PHP developers",
-            "job_role": "PHP developers",
+            "id": "PHP Developers",
+            "job_role": "PHP Developers",
             "group": 1
         },
         {
@@ -121,8 +121,8 @@
             "group": 1
         },
         {
-            "id": ".net Developers",
-            "job_role": ".net Developers",
+            "id": ".Net Developers",
+            "job_role": ".Net Developers",
             "group": 1
         },
         {
@@ -226,31 +226,31 @@
         },
         {
             "source": "Web Designers",
-            "target": "PHP developers"
+            "target": "PHP Developers"
         },
         {
             "source": "Web Designers",
             "target": "Web Developers"
         },
         {
-            "source": "PHP developers",
+            "source": "PHP Developers",
             "target": "Java Developers"
         },
         {
-            "source": "PHP developers",
+            "source": "PHP Developers",
             "target": "Applications Developers"
         },
         {
-            "source": "PHP developers",
+            "source": "PHP Developers",
             "target": "Software Developers"
         },
         {
-            "source": "PHP developers",
+            "source": "PHP Developers",
             "target": "Web Developers"
         },
         {
-            "source": "PHP developers",
-            "target": ".net Developers"
+            "source": "PHP Developers",
+            "target": ".Net Developers"
         },
         {
             "source": "Web Developers",
@@ -266,7 +266,7 @@
         },
         {
             "source": "Web Developers",
-            "target": ".net Developers"
+            "target": ".Net Developers"
         },
         {
             "source": "Java Developers",
@@ -282,7 +282,7 @@
         },
         {
             "source": "Java Developers",
-            "target": ".net Developers"
+            "target": ".Net Developers"
         },
         {
             "source": "Software Engineers",
@@ -294,7 +294,7 @@
         },
         {
             "source": "Applications Developers",
-            "target": ".net Developers"
+            "target": ".Net Developers"
         },
         {
             "source": "Software Developers",
@@ -302,7 +302,7 @@
         },
         {
             "source": "Software Developers",
-            "target": ".net Developers"
+            "target": ".Net Developers"
         },
         {
             "source": "Network Engineers",
