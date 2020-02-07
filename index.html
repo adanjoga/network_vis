@@ -16,7 +16,7 @@
     <link rel='stylesheet' href='d3v4-jobs-network.css'>
     <link rel='stylesheet' href='custom_radio_botton.css'>
     <script type="text/javascript" src="d3v4-onet-jobs-network.js"></script>
-    <script type="text/javascript" src="d3v4-dwp-jobs-network.js"></script>
+    <script type="text/javascript" src="d3v4-dwp-jobs-network_v1.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
     
     <div class="container">
@@ -66,7 +66,7 @@
         }
         function display_dwp_network() {
             
-            d3.json('data/jobs_network_dwp.json', function (error, graph) {
+            d3.json('data/jobs_network_dwp_v1.json', function (error, graph) {
                 if (!error) {
                     //console.log('graph', graph);
                     createJobsNetwork_dwp(svg, graph);

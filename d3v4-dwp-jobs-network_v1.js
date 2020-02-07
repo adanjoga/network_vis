@@ -148,24 +148,16 @@ function createJobsNetwork_dwp(svg, graph) {
     }
     */
     function click2() {
-        if (!d3v4.select(this).classed("selected") ){
-            d3.select(this).classed("selected", true)
-            d3.select(this).transition().attr("class","selected");
+        if (!d3v4.select(this).classed("network-selected")) {
+            d3.selectAll('.network-selected').classed("network-selected", false)
+            d3.selectAll('.network-selected').transition().attr("class", "noselected");
+            d3.select(this).classed("network-selected", true)
+            d3.select(this).transition().attr("class", "network-selected");
+            onClickParent(this.__data__.job_role)
         }
         else {
-            d3.select(this).classed("selected", false);
+            d3.select(this).classed("network-selected", false);
             d3.select(this).transition().attr("class","noselected");
-        }
-    }
-    var selected;
-    function click() { 
-        if(!selected){
-            selected = this;
-            d3.select(selected).style('stroke', 'black');
-        } 
-        else if(selected == this){
-            d3.select(selected).style('stroke', 'white');
-            selected = undefined;
         }
     }
     var texts = ['+ Use the scroll wheel to zoom',
