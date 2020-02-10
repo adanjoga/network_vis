@@ -84,7 +84,7 @@ function createJobsNetwork_onet(svg, graph) {
             div.transition()
                 .duration(500)		
                 .style("opacity", .9);
-            div.html("<br/>"  + d.job_role + "<br/>" + "d.score" + " %" + "<br/>")	
+            div.html("<br/>"  + d.job_role + "<br/>" + d.Role_Match_Score + " %" + "<br/>")	
                 .style("left", (d3v4.event.pageX + 15) + "px")		
                 .style("top", (d3v4.event.pageY - 10) + "px");
         })

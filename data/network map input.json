@@ -1,0 +1,19 @@
+[
+    {
+        "Role": "Java Developers",
+        "Role_Match_Score": 46.7
+    },
+    {
+        "Role": "Software Engineers",
+        "Role_Match_Score": 100
+    },
+    {
+        "Role": "Web Administrators",
+        "Role_Match_Score": 80
+    },
+    {
+        "Role": "Computer Programmers",
+        "Role_Match_Score": 90
+    }
+
+]
