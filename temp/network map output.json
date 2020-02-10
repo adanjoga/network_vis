@@ -1,0 +1,24 @@
+{
+    "nodes": [
+        {
+            "id": ".net Developers",
+            "job_role": ".net Developers",
+            "group": 1
+        },
+        {
+            "id": "Web Designers",
+            "job_role": "Web Designers",
+            "group": 1
+        },
+    ],
+    "links": [
+        {
+            "source": ".net Developers",
+            "target": "Applications Developers"
+        },
+        {
+            "source": ".net Developers",
+            "target": "Java Developers"
+        },
+    ]
+}
