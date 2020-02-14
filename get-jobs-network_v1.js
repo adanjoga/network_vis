@@ -26,7 +26,7 @@ function get_jobs_network(graph, user_profile, k_nodes_display) {
                     graph.nodes[i].size     = get_node_size(role_score, bounds[0], bounds[1]); 
                     graph.nodes[i].color    = get_node_color(i_node, k_nodes_display);
                     i_node = i_node + 1;
-                    console.log(job_role)
+                    //console.log(job_role)
                 }
                 break;
             }
@@ -47,17 +47,19 @@ function get_node_color(index, maxindex) {
 
 function get_node_size(x, mnx, mxx){
     a = 6; b = 10;
-
-    return (b-a)*((x-mnx)/(mxx-mnx)) + a;
+    // console.log([x, mnx, mxx])
+    nsize = (b-a)*((x-mnx)/(mxx-mnx)) + a;
+    console.log(nsize)
+    return nsize
 
 }
 
 function get_bound_scores(user_profile, n_scores) {
     scores = [];
-    console.log(user_profile)
-    for (i = 0; i < n_scores; i++) {
+    // console.log([user_profile, n_scores])
+    for (i = 0; i < user_profile.length; i++) {
         scores[i] = user_profile[i].Role_Match_Score;
     }
-    console.log(scores)
+    
     return [Math.min.apply(Math, scores), Math.max.apply(Math, scores)]
 }
