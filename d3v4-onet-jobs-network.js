@@ -67,7 +67,7 @@ function createJobsNetwork_onet(svg, graph) {
             if ('size' in d)
                 return d.size;
             else
-                return 6;
+                return 4;
         })
         .attr("fill", function(d) { 
             if ('color' in d)

@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <link rel='stylesheet' href='d3v4-jobs-network.css'>
+    <link rel='stylesheet' href='d3v4-jobs-network_v1.css'>
     <link rel='stylesheet' href='custom_radio_botton.css'>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
     <script type="text/javascript" src="d3v4-onet-jobs-network.js"></script>
     <script type="text/javascript" src="d3v4-dwp-jobs-network.js"></script>
-    <script type="text/javascript" src="get-jobs-network.js"></script>
+    <script type="text/javascript" src="get-jobs-network_v1.js"></script>
     
     <div class="container">
         
@@ -99,7 +99,7 @@
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "data/network map input.json",
+                    'url': "data/network_map_input.json",
                     'dataType': "json",
                     'success': function (data) {
                         json = data;
@@ -110,7 +110,7 @@
 
             //console.log(network_dwp);
             //console.log(user_profile);
-            new_graph = get_jobs_network(network_dwp, user_profile);
+            new_graph = get_jobs_network(network_dwp, user_profile, 10);
             createJobsNetwork_dwp(svg, new_graph);
         }
 
@@ -145,7 +145,7 @@
 
             //console.log(network_dwp);
             console.log(user_profile);
-            new_graph = get_jobs_network(network_onet, user_profile);
+            new_graph = get_jobs_network(network_onet, user_profile,20);
             createJobsNetwork_onet(svg, new_graph);
         }
     </script>
