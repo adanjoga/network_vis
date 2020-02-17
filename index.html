@@ -15,10 +15,11 @@
 <body>
     <link rel='stylesheet' href='d3v4-jobs-network_v1.css'>
     <link rel='stylesheet' href='custom_radio_botton.css'>
+    <link rel='stylesheet' href='custom_dropdown.css'>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
-    <script type="text/javascript" src="d3v4-onet-jobs-network.js"></script>
-    <script type="text/javascript" src="d3v4-dwp-jobs-network.js"></script>
-    <script type="text/javascript" src="get-jobs-network_v1.js"></script>
+    <script type="text/javascript" src="d3v4-onet-jobs-network_v1.js"></script>
+    <script type="text/javascript" src="d3v4-dwp-jobs-network_v1.js"></script>
+    <script type="text/javascript" src="get-jobs-network_v2.js"></script>
     
     <div class="container">
         
@@ -39,8 +40,29 @@
         <div id="d3_fd_network" style="padding:0px; width:100%; height:500px; border: 2px solid rgb(71,71,77)">
             
         </div>
-        <button onclick="load_userdata_onet()">Load user profile for ONET</button>
-        <button onclick="load_userdata_dwp()">Load user profile for DWP</button>
+        <div class="dropup">
+            <button class="dropbtn">ONET User Profiles</button>
+            <div class="dropup-content">
+              <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions4_bestmatch.json')" href="#">Computer Network Architects_Q4</a>
+              <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions12_bestmatch.json')" href="#">Computer Network Architects_Q12</a>
+              <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions24_bestmatch.json')" href="#">Computer Network Architects_Q24</a>
+              <a onclick="load_userdata_onet('data/Education_Teachers_Postsecondary_nquestions4_bestmatch.json')" href="#">Education Teachers, Postsecondary_Q4</a>
+              <a onclick="load_userdata_onet('data/Education_Teachers_Postsecondary_nquestions12_bestmatch.json')"  href="#">Education Teachers, Postsecondary_Q12</a>
+              <a onclick="load_userdata_onet('data/Education_Teachers_Postsecondary_nquestions24_bestmatch.json')"  href="#">Education Teachers, Postsecondary_Q24</a>
+              <a onclick="load_userdata_onet('data/Urologists_nquestions4_bestmatch.json')"  href="#">Urologists_Q4</a>
+              <a onclick="load_userdata_onet('data/Urologists_nquestions12_bestmatch.json')"  href="#">Urologists_Q12</a>
+              <a onclick="load_userdata_onet('data/Urologists_nquestions24_bestmatch.json')"  href="#">Urologists_Q24</a>
+              <a onclick="load_userdata_onet('data/test2.json')"  href="#">Example 1</a>
+              <a onclick="load_userdata_onet('data/test_temp.json')"  href="#">Example 2</a>
+            </div>
+          </div>
+          <div class="dropup">
+            <button class="dropbtn">DWP User Profiles</button>
+            <div class="dropup-content">
+              <a onclick="load_userdata_dwp('data/network_map_input.json')"  href="#">Example 1</a>
+            </div>
+          </div>
+        
     </div>
     <script>
         var width = 960, height = 500;
@@ -79,7 +101,7 @@
             });
             
         }
-        function load_userdata_dwp(){
+        function load_userdata_dwp(json_file){
             
             var network_dwp = (function () {
                 var json = null;
@@ -99,7 +121,7 @@
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "data/network_map_input.json",
+                    'url': json_file,
                     'dataType': "json",
                     'success': function (data) {
                         json = data;
@@ -110,11 +132,11 @@
 
             //console.log(network_dwp);
             //console.log(user_profile);
-            new_graph = get_jobs_network(network_dwp, user_profile, 10);
+            new_graph = get_jobs_network(network_dwp, user_profile, 20);
             createJobsNetwork_dwp(svg, new_graph);
         }
 
-        function load_userdata_onet(){
+        function load_userdata_onet(json_file){
             
             var network_onet = (function () {
                 var json = null;
@@ -134,7 +156,7 @@
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "data/test2.json",
+                    'url': json_file,
                     'dataType': "json",
                     'success': function (data) {
                         json = data;
@@ -143,9 +165,9 @@
                 return json;
             })(); 
 
-            //console.log(network_dwp);
-            console.log(user_profile);
-            new_graph = get_jobs_network(network_onet, user_profile,20);
+            // console.log(json_file);
+            // console.log(user_profile);
+            new_graph = get_jobs_network(network_onet, user_profile, 20);
             createJobsNetwork_onet(svg, new_graph);
         }
     </script>
