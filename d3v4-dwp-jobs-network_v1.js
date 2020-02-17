@@ -1,4 +1,4 @@
-function createJobsNetwork_onet(svg, graph) {
+function createJobsNetwork_dwp(svg, graph) {
     d3v4 = d3;
 
     let parentWidth = d3v4.select('svg').node().parentNode.clientWidth;
@@ -17,7 +17,7 @@ function createJobsNetwork_onet(svg, graph) {
     svg.selectAll('.g-main').remove();
 
     var gMain = svg.append('g')
-    .classed('g-main', true);
+        .classed('g-main', true);
 
     var rect = gMain.append('rect')
         .attr('width', parentWidth)
@@ -63,10 +63,10 @@ function createJobsNetwork_onet(svg, graph) {
         .enter().append("g");
 
     node.append("circle")
-        .attr("r", function(d) {
+        .attr("r", function(d){
             if ('size' in d)
                 return d.size;
-            else
+            else 
                 return 6;
         })
         .attr("fill", function(d) { 
@@ -75,7 +75,13 @@ function createJobsNetwork_onet(svg, graph) {
             else
                 return color(d.group); 
         })
-        .on("click", click)
+        .style("opacity", function(d) {
+            if('alpha' in d)
+                return d.alpha
+            else
+                return 1;
+        })
+        .on("click", click2)
         .on("mouseover", function(d,i) {
             d3v4.select(this)
                 .transition()
@@ -103,20 +109,19 @@ function createJobsNetwork_onet(svg, graph) {
                 .duration(500)
                 .style("opacity", 0)
         })
-        .call(d3v4.drag());
-    
+        .call(d3v4.drag());   
+
     var simulation = d3v4.forceSimulation()
         .force("link", d3v4.forceLink()
                 .id(function(d) { return d.id; })
                 .distance(function(d) { 
-                    return 15;
-                    return dist; 
+                    return 30;
                 })
               )
         .force("charge", d3v4.forceManyBody())
-        .force("center", d3v4.forceCenter(parentWidth / 2, parentHeight / 2))
-        .force("x", d3v4.forceX())
-        .force("y", d3v4.forceY().strength(function(d){ return .30 }));
+        .force("center", d3v4.forceCenter(parentWidth / 2, parentHeight / 2));
+        //.force("x", d3v4.forceX(parentWidth/2))
+        //.force("y", d3v4.forceY(parentHeight/2));
 
     simulation
         .nodes(graph.nodes)
@@ -124,7 +129,7 @@ function createJobsNetwork_onet(svg, graph) {
 
     simulation.force("link")
         .links(graph.links);
-
+  
     function ticked() {
         // update node and line positions at every step of the force simulation
         link.attr("x1", function(d) { return d.source.x; })
@@ -133,23 +138,36 @@ function createJobsNetwork_onet(svg, graph) {
             .attr("y2", function(d) { return d.target.y; });
 
         node.attr("transform", function(d) {
-            return "translate(" + d.x + "," + d.y + ")";
+          return "translate(" + d.x + "," + d.y + ")";
         })
     }
 
-    function click() { 
-        if (!d3v4.select(this).classed("selected") ){
-            d3.select(this).classed("selected", true)
-            d3.select(this).transition().attr("class","selected");
+    /*
+    function click(d) { 
+        var active = d.active? false: true,
+            newClass = active? "selected": "noselected";
+        
+        d3v4.select(this).transition()
+            .attr("class", newClass);
+        
+        d.active = true;
+    }
+    */
+    function click2() {
+        if (!d3v4.select(this).classed("network-selected")) {
+            d3.selectAll('.network-selected').classed("network-selected", false)
+            d3.selectAll('.network-selected').transition().attr("class", "noselected");
+            d3.select(this).classed("network-selected", true)
+            d3.select(this).transition().attr("class", "network-selected");
+            onClickParent(this.__data__.job_role)
         }
         else {
-            d3.select(this).classed("selected", false);
+            d3.select(this).classed("network-selected", false);
             d3.select(this).transition().attr("class","noselected");
         }
     }
-
     var texts = ['+ Use the scroll wheel to zoom',
-                    '+ Hold the mouse over a node to display the name'];
+                 '+ Hold the mouse over a node to display the name'];
     
     svg.selectAll('text')
         .data(texts)
@@ -159,4 +177,5 @@ function createJobsNetwork_onet(svg, graph) {
         .attr('y', function(d,i) { return 400 + i * 20; })
         .text(function(d) { return d; });
     return graph;
+    
 };
