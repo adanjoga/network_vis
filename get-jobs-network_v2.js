@@ -11,9 +11,10 @@ function get_jobs_network(graph, user_profile, k_nodes_display) {
     var i, j, i_node = 0;
     for (i = 0; i < graph.nodes.length; i++) {
         graph.nodes[i].Role_Match_Score = 0;
-        graph.nodes[i].size = 4.5;
+        graph.nodes[i].size = 4;
         graph.nodes[i].color = "#868a87";
         graph.nodes[i].alpha = 0.6;
+        graph.nodes[i].group = graph.nodes[i].group;
 
         job_role = graph.nodes[i].job_role;
 
@@ -26,7 +27,7 @@ function get_jobs_network(graph, user_profile, k_nodes_display) {
                     
                     graph.nodes[i].size     = get_node_size(role_score, bounds[0], bounds[1]); 
                     graph.nodes[i].color    = get_node_color(role_score, bounds[0], bounds[1]);
-                    graph.nodes[i].alpha    = 1;
+                    graph.nodes[i].alpha    = 0.9;
                     i_node = i_node + 1;
                     // console.log([job_role,  role_score])
                 }
@@ -51,7 +52,7 @@ function get_node_color(x, mnx, mxx) {
 }
 
 function get_node_size(x, mnx, mxx){
-    a = 6; b = 10;
+    a = 5; b = 10;
     nsize = (b-a)*((x-mnx)/(mxx-mnx)) + a;
     // console.log([x, mnx, mxx])
     // console.log(nsize)
