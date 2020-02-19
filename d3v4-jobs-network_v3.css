@@ -16,7 +16,7 @@ color: rgb(54, 54, 54);
 }
 
 .node .network-selected {
-stroke: rgb(245, 4, 4);
+stroke: red;
 }
 
 .link {
