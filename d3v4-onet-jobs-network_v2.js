@@ -46,18 +46,19 @@ function createJobsNetwork_onet(svg, graph) {
     for (i = 0; i < graph.nodes.length; i++) {
         graph.nodes[i].weight = 1.01;
     }
-    var nodes = graph.nodes;
+    var nodes = graph.nodes,
         nodeById = d3v4.map(nodes, function(d) { return d.id; }),
-        links = graph.links;
+        links = graph.links,
         bilinks = [];
-        console.log(nodes)
+    //console.log(nodes)
+
     links.forEach(function(link) {
         var s = link.source = nodeById.get(link.source),
             t = link.target = nodeById.get(link.target);
         bilinks.push([s, t]);
     });
 
-    // console.log(nodes)
+    
 
     var link = gDraw.append("g")
         .attr("class", "link")
@@ -66,7 +67,10 @@ function createJobsNetwork_onet(svg, graph) {
         .enter().append("line")
         .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-    console.log(nodes)
+    //console.log(nodes)
+
+    var default_node_size_onet = 4.5,
+        default_node_size_over = 10;
 
     var node = gDraw.append("g")
         .attr("class", "node")
@@ -79,7 +83,7 @@ function createJobsNetwork_onet(svg, graph) {
             if ('size' in d)
                 return d.size;
             else
-                return 4.5;
+                return default_node_size_onet;
         })
         .attr("fill", function(d) { 
             if ('color' in d)
@@ -88,12 +92,10 @@ function createJobsNetwork_onet(svg, graph) {
                 return color(d.group); 
         })
         .style("stroke", function(d) {
-            
             if ('color' in d)
                 return color(d.group);
             else
                 return "#ffffff";
-            
         })
         .style("opacity", function(d) {
             if('alpha' in d)
@@ -103,14 +105,19 @@ function createJobsNetwork_onet(svg, graph) {
         })
         .on("click", click2)
         .on("mouseover", function(d,i) {
+            var match_score = "";
+            if('Role_Match_Score' in d) 
+                match_score = d.Role_Match_Score + " %";
+            
             d3v4.select(this)
                 .transition()
-                .attr("r", 10);
+                .attr("r", default_node_size_over);
                 
             div.transition()
                 .duration(500)		
                 .style("opacity", .9);
-            div.html("<br/>"  + d.job_role + "<br/>" + d.Role_Match_Score + " %" + "<br/>")	
+
+            div.html("<br/>"  + d.job_role + "<br/>" + match_score + "<br/>")	
                 .style("left", (d3v4.event.pageX + 15) + "px")		
                 .style("top", (d3v4.event.pageY - 10) + "px");
         })
@@ -122,7 +129,7 @@ function createJobsNetwork_onet(svg, graph) {
                     if ('size' in d)
                         return d.size;
                     else 
-                        return 4.5;
+                        return default_node_size_onet;
                 });
 
             div.transition()
@@ -187,11 +194,22 @@ function createJobsNetwork_onet(svg, graph) {
             d3.select(this).transition().attr("class","noselected");
         }
     }
+    
+    var legend_w = 220, legend_h = 100; 
+    
+    gDraw.selectAll('image').data([0])
+        .enter()
+        .append("svg:image")
+        .attr('xlink:href', 'data/network_legend2.png')
+        .attr("x", function(d) {return parentWidth - (legend_w + 30)})
+        .attr("y", function(d) {return parentHeight - (legend_h + 20)})
+        .attr("width", legend_w)
+        .attr("height", legend_h);
 
     var texts = ['+ Use the scroll wheel to zoom',
-                    '+ Hold the mouse over a node to display the name'];
+                 '+ Hold the mouse over a node to display the job role name'];
     
-    svg.selectAll('text')
+    gDraw.selectAll('text')
         .data(texts)
         .enter()
         .append('text')

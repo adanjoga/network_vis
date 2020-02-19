@@ -1,5 +1,5 @@
 function get_jobs_network(graph, user_profile, k_nodes_display) {
-    console.log(graph);
+    // console.log(graph);
     
     if (k_nodes_display === undefined) {
         k_nodes_display = Math.min(10, user_profile.length);
@@ -35,7 +35,7 @@ function get_jobs_network(graph, user_profile, k_nodes_display) {
             }
         }
     }
-    console.log(graph)
+    // console.log(graph)
     return graph;
 }
 function get_node_color(x, mnx, mxx) {

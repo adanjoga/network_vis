@@ -166,6 +166,15 @@ function createJobsNetwork_dwp(svg, graph) {
             d3.select(this).transition().attr("class","noselected");
         }
     }
+
+    var img = svg.selectAll('image').data([0]);
+        img.enter()
+        .append("svg:image")
+        .attr("x", "60")
+        .attr("y", "60")
+        .attr("width", "20")
+        .attr("height", "20");
+
     var texts = ['+ Use the scroll wheel to zoom',
                  '+ Hold the mouse over a node to display the name'];
     
