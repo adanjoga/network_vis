@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <link rel='stylesheet' href='d3v4-jobs-network_v3.css'>
+    <link rel='stylesheet' href='d3v4-jobs-network_v3.css?847'>
     <link rel='stylesheet' href='custom_radio_botton_v1.css'>
     <link rel='stylesheet' href='custom_dropdown.css'>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
-    <script type="text/javascript" src="d3v4-onet-jobs-network_v3.js"></script>
+    <script type="text/javascript" src="d3v4-onet-jobs-network_v3.js?834"></script>
     <script type="text/javascript" src="d3v4-dwp-jobs-network_v2.js"></script>
     <script type="text/javascript" src="get-jobs-network_v2.js"></script>
     
@@ -78,7 +78,7 @@
             .attr("width", width)
             .attr("height", height);
         
-        d3.json('data/jobs_network_onet_xy.json', function (error, graph) {
+        d3.json('data/jobs_network_onet_xy_v1.json', function (error, graph) {
             if (!error) {
                 //console.log('graph', graph);
                 createJobsNetwork_onet(svg, graph);
@@ -88,7 +88,7 @@
         });
         
         function display_onet_network() {
-            d3.json('data/jobs_network_onet_xy.json', function (error, graph) {
+            d3.json('data/jobs_network_onet_xy_v1.json', function (error, graph) {
                 if (!error) {
                     //console.log('graph', graph);
                     createJobsNetwork_onet(svg, graph);
@@ -150,7 +150,7 @@
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "data/jobs_network_onet_xy.json",
+                    'url': "data/jobs_network_onet_xy_v1.json",
                     'dataType': "json",
                     'success': function (data) {
                         json = data;

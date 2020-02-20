@@ -67,7 +67,7 @@ function createJobsNetwork_onet(svg, graph) {
 
     //console.log(nodes)
 
-    var default_node_size_onet = 4.5,
+    var default_node_size_onet = 6,
         default_node_size_over = 10;
 
     var node = gDraw.append("g")
@@ -195,11 +195,11 @@ function createJobsNetwork_onet(svg, graph) {
         }
     }
     
-    var legend_w = 220, legend_h = 100; 
+    var legend_w = 250, legend_h = 150; 
     gDraw.selectAll('image').data([0])
         .enter()
         .append("svg:image")
-        .attr('xlink:href', 'data/network_legend2.png')
+        .attr('xlink:href', 'data/network_legend.png')
         .attr("x", function(d) {return parentWidth - (legend_w + 30)})
         .attr("y", function(d) {return parentHeight - (legend_h + 20)})
         .attr("width", legend_w)

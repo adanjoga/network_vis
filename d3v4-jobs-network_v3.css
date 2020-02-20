@@ -5,7 +5,7 @@
 
 .node circle {
 stroke: #fff;
-stroke-opacity: .5;
+stroke-opacity: .8;
 stroke-width: 1.5px;
 }
 
@@ -20,8 +20,7 @@ stroke: red;
 }
 
 .link {
-stroke: rgb(165, 165, 165);
-opacity: 0.6;
+  stroke: #999;
 }
 
 div.tooltip {	
