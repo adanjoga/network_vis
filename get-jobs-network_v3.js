@@ -12,8 +12,8 @@ function get_jobs_network(graph, user_profile, k_nodes_display) {
     for (i = 0; i < graph.nodes.length; i++) {
         graph.nodes[i].Role_Match_Score = 0;
         graph.nodes[i].size = 4;
-        graph.nodes[i].color = "#868a87";
-        graph.nodes[i].alpha = 0.6;
+        graph.nodes[i].color = "#fff";
+        graph.nodes[i].alpha = 0.8;
         graph.nodes[i].group = graph.nodes[i].group;
 
         job_role = graph.nodes[i].job_role;

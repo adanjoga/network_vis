@@ -1,0 +1,346 @@
+{
+    "nodes": [
+        {
+            "id": "Applications Developers",
+            "job_role": "Applications Developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "IT Project Managers",
+            "job_role": "IT Project Managers",
+            "group": 1,
+            "label_pos": "left"
+        },
+        {
+            "id": ".Net Developers",
+            "job_role": ".Net Developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Software Developers",
+            "job_role": "Software Developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Analyst Programmers",
+            "job_role": "Analyst Programmers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Software Test Engineers",
+            "job_role": "Software Test Engineers",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Technical Architects",
+            "job_role": "Technical Architects",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "IT Technical Support Officers",
+            "job_role": "IT Technical Support Officers",
+            "group": 3,
+            "label_pos": "left"
+        },
+        {
+            "id": "Systems Engineers",
+            "job_role": "Systems Engineers",
+            "group": 3,
+            "label_pos": "left"
+        },
+        {
+            "id": "IT Consultants",
+            "job_role": "IT Consultants",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Data Analysts",
+            "job_role": "Data Analysts",
+            "group": 1,
+            "label_pos": "left"
+        },
+        {
+            "id": "Network Engineers",
+            "job_role": "Network Engineers",
+            "group": 3,
+            "label_pos": "left"
+        },
+        {
+            "id": "Systems Analysts",
+            "job_role": "Systems Analysts",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Java Developers",
+            "job_role": "Java Developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Data Engineers",
+            "job_role": "Data Engineers",
+            "group": 1,
+            "label_pos": "left"
+        },
+        {
+            "id": "Devops Engineers",
+            "job_role": "Devops Engineers",
+            "group": 3,
+            "label_pos": "left"
+        },
+        {
+            "id": "Business Analysts",
+            "job_role": "Business Analysts",
+            "group": 1,
+            "label_pos": "left"
+        },
+        {
+            "id": "Solution Architects",
+            "job_role": "Solution Architects",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Cyber Security Analysts",
+            "job_role": "Cyber Security Analysts",
+            "group": 3,
+            "label_pos": "left"
+        },
+        {
+            "id": "PHP developers",
+            "job_role": "PHP developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Web Designers",
+            "job_role": "Web Designers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Database Administrators",
+            "job_role": "Database Administrators",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Web Developers",
+            "job_role": "Web Developers",
+            "group": 0,
+            "label_pos": "left"
+        },
+        {
+            "id": "Product Managers",
+            "job_role": "Product Managers",
+            "group": 1,
+            "label_pos": "left"
+        },
+        {
+            "id": "Software Engineers",
+            "job_role": "Software Engineers",
+            "group": 2,
+            "label_pos": "left"
+        },
+        {
+            "id": "Data Scientists",
+            "job_role": "Data Scientists",
+            "group": 1,
+            "label_pos": "left"
+        }
+    ],
+    "links": [
+        {
+            "source": "Applications Developers",
+            "target": "Java Developers"
+        },
+        {
+            "source": "Applications Developers",
+            "target": ".Net Developers"
+        },
+        {
+            "source": "Applications Developers",
+            "target": "PHP developers"
+        },
+        {
+            "source": "Applications Developers",
+            "target": "Software Developers"
+        },
+        {
+            "source": "Applications Developers",
+            "target": "Web Developers"
+        },
+        {
+            "source": "Java Developers",
+            "target": ".Net Developers"
+        },
+        {
+            "source": "Java Developers",
+            "target": "Software Developers"
+        },
+        {
+            "source": "Java Developers",
+            "target": "PHP developers"
+        },
+        {
+            "source": "Java Developers",
+            "target": "Web Developers"
+        },
+        {
+            "source": "Java Developers",
+            "target": "Software Engineers"
+        },
+        {
+            "source": ".Net Developers",
+            "target": "PHP developers"
+        },
+        {
+            "source": ".Net Developers",
+            "target": "Software Developers"
+        },
+        {
+            "source": ".Net Developers",
+            "target": "Web Developers"
+        },
+        {
+            "source": "PHP developers",
+            "target": "Software Developers"
+        },
+        {
+            "source": "PHP developers",
+            "target": "Web Designers"
+        },
+        {
+            "source": "PHP developers",
+            "target": "Web Developers"
+        },
+        {
+            "source": "Software Developers",
+            "target": "Analyst Programmers"
+        },
+        {
+            "source": "Software Developers",
+            "target": "Technical Architects"
+        },
+        {
+            "source": "Software Developers",
+            "target": "Web Developers"
+        },
+        {
+            "source": "Software Developers",
+            "target": "Software Engineers"
+        },
+        {
+            "source": "Web Developers",
+            "target": "Web Designers"
+        },
+        {
+            "source": "IT Project Managers",
+            "target": "Business Analysts"
+        },
+        {
+            "source": "IT Project Managers",
+            "target": "Solution Architects"
+        },
+        {
+            "source": "IT Project Managers",
+            "target": "Product Managers"
+        },
+        {
+            "source": "IT Project Managers",
+            "target": "Systems Engineers"
+        },
+        {
+            "source": "Business Analysts",
+            "target": "Data Analysts"
+        },
+        {
+            "source": "Business Analysts",
+            "target": "Systems Analysts"
+        },
+        {
+            "source": "Business Analysts",
+            "target": "Product Managers"
+        },
+        {
+            "source": "Solution Architects",
+            "target": "Technical Architects"
+        },
+        {
+            "source": "Systems Engineers",
+            "target": "IT Technical Support Officers"
+        },
+        {
+            "source": "Systems Engineers",
+            "target": "Network Engineers"
+        },
+        {
+            "source": "Systems Engineers",
+            "target": "Devops Engineers"
+        },
+        {
+            "source": "Systems Engineers",
+            "target": "Cyber Security Analysts"
+        },
+        {
+            "source": "Systems Engineers",
+            "target": "IT Consultants"
+        },
+        {
+            "source": "Technical Architects",
+            "target": "IT Consultants"
+        },
+        {
+            "source": "Technical Architects",
+            "target": "Software Engineers"
+        },
+        {
+            "source": "Software Engineers",
+            "target": "Data Engineers"
+        },
+        {
+            "source": "IT Consultants",
+            "target": "Systems Analysts"
+        },
+        {
+            "source": "IT Consultants",
+            "target": "Software Test Engineers"
+        },
+        {
+            "source": "IT Technical Support Officers",
+            "target": "Network Engineers"
+        },
+        {
+            "source": "IT Technical Support Officers",
+            "target": "Cyber Security Analysts"
+        },
+        {
+            "source": "Network Engineers",
+            "target": "Cyber Security Analysts"
+        },
+        {
+            "source": "Systems Analysts",
+            "target": "Database Administrators"
+        },
+        {
+            "source": "Data Analysts",
+            "target": "Data Scientists"
+        },
+        {
+            "source": "Data Analysts",
+            "target": "Data Engineers"
+        },
+        {
+            "source": "Data Scientists",
+            "target": "Data Engineers"
+        }
+    ]
+}

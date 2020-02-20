@@ -18,8 +18,8 @@
     <link rel='stylesheet' href='custom_dropdown.css'>
     <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
     <script type="text/javascript" src="d3v4-onet-jobs-network_v3.js?834"></script>
-    <script type="text/javascript" src="d3v4-dwp-jobs-network_v2.js"></script>
-    <script type="text/javascript" src="get-jobs-network_v2.js"></script>
+    <script type="text/javascript" src="d3v4-dwp-jobs-network_v3.js?837"></script>
+    <script type="text/javascript" src="get-jobs-network_v3.js"></script>
     
     <div class="container">
         
@@ -99,7 +99,7 @@
         }
         function display_dwp_network() {
             
-            d3.json('data/jobs_network_dwp_v1.json', function (error, graph) {
+            d3.json('data/jobs_network_dwp_xy.json', function (error, graph) {
                 if (!error) {
                     //console.log('graph', graph);
                     createJobsNetwork_dwp(svg, graph);
@@ -116,7 +116,7 @@
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "data/jobs_network_dwp_v1.json",
+                    'url': "data/jobs_network_dwp_xy.json",
                     'dataType': "json",
                     'success': function (data) {
                         json = data;

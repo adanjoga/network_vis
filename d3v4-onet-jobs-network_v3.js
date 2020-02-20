@@ -65,8 +65,6 @@ function createJobsNetwork_onet(svg, graph) {
         .enter().append("line")
         .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-    //console.log(nodes)
-
     var default_node_size_onet = 6,
         default_node_size_over = 10;
 
@@ -118,8 +116,6 @@ function createJobsNetwork_onet(svg, graph) {
             div.html("<br/>"  + d.job_role + match_score + "<br/>")	
                 .style("left", (d3v4.event.pageX + 15) + "px")		
                 .style("top", (d3v4.event.pageY - 10) + "px");
-
-            
         })
         .on("mouseout", function(d,i) {
             if (!d3v4.select(this).classed("network-selected")) {
@@ -204,7 +200,7 @@ function createJobsNetwork_onet(svg, graph) {
         .attr("y", function(d) {return parentHeight - (legend_h + 20)})
         .attr("width", legend_w)
         .attr("height", legend_h);
-
+    
     var texts = ['+ Use the scroll wheel to zoom',
                  '+ Hold the mouse over a node to display the job role name'];
     gDraw.selectAll('text')
@@ -214,5 +210,6 @@ function createJobsNetwork_onet(svg, graph) {
         .attr('x', 10)
         .attr('y', function(d,i) { return 400 + i * 20; })
         .text(function(d) { return d; });
+    
     return graph;
 };
