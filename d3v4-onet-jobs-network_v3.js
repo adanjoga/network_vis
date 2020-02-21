@@ -176,13 +176,14 @@ function createJobsNetwork_onet(svg, graph) {
                     else 
                         return default_node_size_onet;
                 })
-                .transition().style("stroke", (d) => color(d.group));
+                .transition().style("stroke", (d) => color(d.group))
+                .transition().style("stroke-width", 1.5);
             d3.selectAll('.network-selected').transition().attr("class", "noselected");
             
             d3.select(this).classed("network-selected", true)
-            d3.select(this).transition()
-                .style("stroke", "red")
-                .transition.style("stroke-width", 2);
+            d3.select(this)
+                .transition().style("stroke", "red")
+                .transition().style("stroke-width", 2.5);
             //onClickParent(this.__data__.job_role)
         }
         else {

@@ -140,15 +140,20 @@ function createJobsNetwork_dwp(svg, graph) {
             return d.job_role;
         })
         .attr('x', function (d) {
-            return 12;     
+            var label = d.label_pos;
+            console.log(d.job_role.length, label)
+            if (label.localeCompare("left") == 0)
+                return - (d.job_role.length * 5) - 10;
+            else
+                return 10;           
         })
         .attr('y', function (d) {
-            label = d.label_pos;
-            if (label.localeCompare("top") == 0)
-                return 0;
+            var label = d.label_pos;
+            if (label.localeCompare("top") == 0 || label.localeCompare("left") == 0)
+                return 0;     
             else
-                return 12;     
-        }); 
+                return 10;
+        });
        
     var simulation = d3v4.forceSimulation()
         .force("link", d3v4.forceLink()
@@ -192,13 +197,14 @@ function createJobsNetwork_dwp(svg, graph) {
                     else 
                         return default_node_size_dwp;
                 })
-                .transition().style("stroke", (d) => color(d.group));
+                .transition().style("stroke", (d) => color(d.group))
+                .transition().style("stroke-width", 1.5);
             d3.selectAll('.network-selected').transition().attr("class", "noselected");
             
             d3.select(this).classed("network-selected", true)
-            d3.select(this).transition()
-                .style("stroke", "red")
-                .transition.style("stroke-width", 2);
+            d3.select(this)
+                .transition().style("stroke", "red")
+                .transition().attr("stroke-width", 2.5);
             //onClickParent(this.__data__.job_role)
         }
         else {

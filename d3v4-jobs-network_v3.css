@@ -5,14 +5,14 @@
 
 .node circle {
 stroke: #fff;
-stroke-opacity: .8;
+stroke-opacity: .6;
 stroke-width: 1.5px;
 }
 
 .node text {
-font-family: sans-serif;
+font-family: console, monospace;
 font-size: 8px;
-color: rgb(54, 54, 54);
+color: rgb(53, 53, 53);
 }
 
 .node .network-selected {
