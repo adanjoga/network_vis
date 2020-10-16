@@ -27,11 +27,17 @@
             <h1>C3 Project: Job Roles Network </h1>
             <p>Resize this responsive page to see the effect!</p>
         </div>
+	
+	<div class="dropup">
+	<button class="dropbtn">O*NET Network Projections</button>
+	<div class="dropup-content">
+		<a onclick="display_onet_network('data/skills_network_onet_IMCX.json')" href="#">Skills</a>
+		<a onclick="display_onet_network('data/skills_network_onet_IMLV.json')" href="#">Skills (IMLV)</a>
+		<a onclick="display_onet_network('data/jr_network_onet_IMCX.json')" href="#">O*NET Job roles</a>
+		<a onclick="display_onet_network('data/jr_network_onet_IMLV.json')" href="#">O*NET Job roles IMLV</a>
+	</div>
+	</div>
 
-        <label class="mycontainer">ONET Jobs Network
-            <input type="radio" checked="checked" name="radio" onclick="display_onet_network()">
-            <span class="checkmark"></span>
-        </label>
         <label class="mycontainer">DWP Jobs Network
             <input type="radio" name="radio" onclick="display_dwp_network()">
             <span class="checkmark"></span>
@@ -51,7 +57,7 @@
         <div class="dropup">
             <button class="dropbtn">ONET User Profiles</button>
             <div class="dropup-content">
-              <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions4_bestmatch.json')" href="#">Computer Network Architects_Q4</a>
+		    <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions4_bestmatch.json')" href="#">Computer Network Architects_Q4</a>
               <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions12_bestmatch.json')" href="#">Computer Network Architects_Q12</a>
               <a onclick="load_userdata_onet('data/Computer_Network_Architects_nquestions24_bestmatch.json')" href="#">Computer Network Architects_Q24</a>
               <a onclick="load_userdata_onet('data/Education_Teachers_Postsecondary_nquestions4_bestmatch.json')" href="#">Education Teachers, Postsecondary_Q4</a>
@@ -90,8 +96,8 @@
             }
         });
         
-        function display_onet_network() {
-            d3.json(onet_jobs_network_file, function (error, graph) {
+        function display_onet_network(json_file) {
+            d3.json(json_file, function (error, graph) {
                 if (!error) {
                     //console.log('graph', graph);
                     createJobsNetwork_onet(svg, graph);
